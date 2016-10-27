@@ -20,6 +20,6 @@ public class Planet {
     // todo: create a property "satellites" that holds the number of moons a planet has. EG: Mercury has 0 satellites
 
     // todo: create a property "supportsLife" that indicates whether or not a planet supports life. EG: Mercury does not support life.
-    
+
 
 }

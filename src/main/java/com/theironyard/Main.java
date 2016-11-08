@@ -12,11 +12,11 @@ public class Main {
 
         // todo: create an new variable "planet1" and set it to a new instance of the Planet class
 
-        // todo: set all four properties of the Planet class on the planet1 instance: name, distanceFromSun, mass, satellites, supportsLife, orbitalPeriod, and rotationalPeriod
+        // todo: set all four properties of the Planet class on the planet1 instance: name, distanceFromSun, satellites, and supportsLife.
 
         // todo: create another new variable named "planet2" and set it to a new instance of the Planet class
 
-        // todo: set all seven properties of the Planet class on the planet2 instance: name, distanceFromSun, mass, satellites, supportsLife, orbitalPeriod, and rotationalPeriod
+        // todo: set all four properties of the Planet class on the planet2 instance
 
         // todo: Use println() to print a String description of planet1 using string concatenation
         /*

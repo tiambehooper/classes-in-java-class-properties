@@ -21,5 +21,4 @@ public class Planet {
 
     // todo: create a property "supportsLife" that indicates whether or not a planet supports life. EG: Mercury does not support life.
 
-
 }

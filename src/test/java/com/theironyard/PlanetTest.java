@@ -1,29 +1,17 @@
 package com.theironyard;
 
-import net.doughughes.testifier.annotation.Testifier;
-import net.doughughes.testifier.watcher.NotifyingWatcher;
-import net.doughughes.testifier.watcher.OutputWatcher;
-import org.junit.Rule;
+import net.doughughes.testifier.test.TestifierTest;
 import org.junit.Test;
 
 import java.lang.reflect.Field;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
-@Testifier(sourcePath = "./src/main/java/com/theironyard/Planet.java", clazz = Planet.class)
-public class PlanetTest {
-
-    @Rule
-    public NotifyingWatcher notifyingWatcher = new NotifyingWatcher("https://tiy-testifier-webapp.herokuapp.com/notify");
-
-    @Rule
-    public OutputWatcher outputWatcher = new OutputWatcher();
+public class PlanetTest extends TestifierTest {
 
     @Test
-    @Testifier
     public void namePropertyIsStringTest() {
         /* arrange */
 
@@ -41,7 +29,6 @@ public class PlanetTest {
     }
 
     @Test
-    @Testifier
     public void distanceFromSunPropertyIsDoubleTest() {
         /* arrange */
 
@@ -59,7 +46,6 @@ public class PlanetTest {
     }
 
     @Test
-    @Testifier
     public void satellitesPropertyIsIntTest() {
         /* arrange */
 
@@ -77,7 +63,6 @@ public class PlanetTest {
     }
 
     @Test
-    @Testifier
     public void supportsLifePropertyIsBooleanTest() {
         /* arrange */
 

@@ -1,6 +1,7 @@
 package com.theironyard;
 
 import com.github.javaparser.ParseException;
+import net.doughughes.testifier.exception.CannotFindMethodException;
 import net.doughughes.testifier.matcher.RegexMatcher;
 import net.doughughes.testifier.output.OutputStreamInterceptor;
 import net.doughughes.testifier.test.TestifierTest;
@@ -14,6 +15,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.Assert.fail;
 
 public class MainTest extends TestifierTest {
 
@@ -37,11 +39,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldInstantiatePlanet1Test() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldInstantiatePlanet1Test(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should define a variable planet1 and set it to a new instance of the Planet class.",
@@ -50,11 +57,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1NameBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet1NameBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet1's name property before printing it out the first time.",
@@ -63,11 +75,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1DistanceFromSunBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet1DistanceFromSunBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet1's distanceFromSun property before printing it out the first time.",
@@ -76,11 +93,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1SatellitesBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet1SatellitesBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet1's satellites property before printing it out the first time.",
@@ -89,11 +111,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1SupportsLifeBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet1SupportsLifeBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet1's supportsLife property before printing it out the first time.",
@@ -105,11 +132,16 @@ public class MainTest extends TestifierTest {
 
 
     @Test
-    public void mainMethodShouldInstantiatePlanet2Test() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldInstantiatePlanet2Test(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should define a variable planet2 and set it to a new instance of the Planet class.",
@@ -118,11 +150,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2NameBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet2NameBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet2's name property before printing it out the first time.",
@@ -131,11 +168,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2DistanceFromSunBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet2DistanceFromSunBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet2's distanceFromSun property before printing it out the first time.",
@@ -144,11 +186,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2SatellitesBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet2SatellitesBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet2's satellites property before printing it out the first time.",
@@ -157,11 +204,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2SupportsLifeBeforePrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldSetPlanet2SupportsLifeBeforePrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should set planet2's supportsLife property before printing it out the first time.",
@@ -170,11 +222,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldChangePlanet1PropertyAfterPrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldChangePlanet1PropertyAfterPrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should change any one of Planet1's properties before printing it out a second time.",
@@ -183,11 +240,16 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldChangePlanet2PropertyAfterPrintingTest() throws NoSuchMethodException, IOException, ParseException {
+    public void mainMethodShouldChangePlanet2PropertyAfterPrintingTest(){
         /* arrange */
 
         /* act */
-        String source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
 
         // check the structure of the code
         Assert.assertThat("The main() method should change any one of Planet2's properties before printing it out a second time.",

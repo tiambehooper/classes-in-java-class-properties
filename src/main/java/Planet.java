@@ -1,5 +1,3 @@
-package com.theironyard;
-
 /**
  * This class should model a planet in our solar system. Your job is to create
  * the properties described below. Remember that properties are effectively

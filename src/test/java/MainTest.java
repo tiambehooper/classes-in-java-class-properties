@@ -1,6 +1,3 @@
-package com.theironyard;
-
-import com.github.javaparser.ParseException;
 import net.doughughes.testifier.exception.CannotFindMethodException;
 import net.doughughes.testifier.matcher.RegexMatcher;
 import net.doughughes.testifier.output.OutputStreamInterceptor;
@@ -8,7 +5,6 @@ import net.doughughes.testifier.test.TestifierTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.hamcrest.CoreMatchers.is;

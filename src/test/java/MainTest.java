@@ -118,8 +118,14 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should print a description of planet1 after setting its properties the first time.",
+        Assert.assertThat("The main() method should print a description of planet1 that includes all of its properties after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[name\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet1\\] FieldAccessExpr\\[name\\].*?\\/ExpressionStmt.*?$"));
+        Assert.assertThat("The main() method should print a description of planet1 that includes all of its properties after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[distanceFromSun\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet1\\] FieldAccessExpr\\[distanceFromSun\\].*?\\/ExpressionStmt.*?$"));
+        Assert.assertThat("The main() method should print a description of planet1 that includes all of its properties after setting its properties the first time.",
                 source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[satellites\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet1\\] FieldAccessExpr\\[satellites\\].*?\\/ExpressionStmt.*?$"));
+        Assert.assertThat("The main() method should print a description of planet1 that includes all of its properties after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[supportsLife\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet1\\] FieldAccessExpr\\[supportsLife\\].*?\\/ExpressionStmt.*?$"));
 
     }
 
@@ -176,7 +182,6 @@ public class MainTest extends TestifierTest {
         // check the structure of the code
         Assert.assertThat("The main() method should set planet2's distanceFromSun property.",
                 source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[distanceFromSun\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
-
     }
 
     @Test
@@ -228,8 +233,14 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should print a description of planet2 after setting its properties the first time.",
+        Assert.assertThat("The main() method should print a description of planet2 that includes all of its properties after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[name\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet2\\] FieldAccessExpr\\[name\\].*?\\/ExpressionStmt.*?$"));
+        Assert.assertThat("The main() method should print a description of planet2 that includes all of its properties after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[distanceFromSun\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet2\\] FieldAccessExpr\\[distanceFromSun\\].*?\\/ExpressionStmt.*?$"));
+        Assert.assertThat("The main() method should print a description of planet2 that includes all of its properties after setting its properties the first time.",
                 source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[satellites\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet2\\] FieldAccessExpr\\[satellites\\].*?\\/ExpressionStmt.*?$"));
+        Assert.assertThat("The main() method should print a description of planet2 that includes all of its properties after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[supportsLife\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet2\\] FieldAccessExpr\\[supportsLife\\].*?\\/ExpressionStmt.*?$"));
 
     }
 

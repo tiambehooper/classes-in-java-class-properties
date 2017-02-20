@@ -11,7 +11,7 @@ public class Planet {
         A planet's distance from the sun is measured in Astronomical Units (AU).
         One AU is the distance from the Sun to Earth.
 
-        EG: Mercury distance from the sun is 0.4 AU.
+        EG: Mercury's distance from the sun is 0.4 AU.
      */
     // todo: create a property named "distanceFromSun" that holds a planet's distance from the sun in Astronomical Units.
 

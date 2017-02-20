@@ -16,25 +16,6 @@ import static org.junit.Assert.fail;
 public class MainTest extends TestifierTest {
 
     @Test
-    public void mainMethodShouldPrintFourStringsTest() {
-        /* arrange */
-
-        /* act */
-        Main.main(new String[]{});
-
-        /* assert */
-        ArrayList printed = ((OutputStreamInterceptor) System.out).getPrinted();
-        assertThat("The main method should have printed four individual Strings to the console.",
-                printed.size(), equalTo(4));
-
-        // the first and third and second and fourth strings should not be equal
-        assertThat("The planet1 object should have been changed, resulting in different output the second time planet1 was described.",
-                printed.get(0), is(not(printed.get(2))));
-        assertThat("The planet2 object should have been changed, resulting in different output the second time planet2 was described.",
-                printed.get(1), is(not(printed.get(3))));
-    }
-
-    @Test
     public void mainMethodShouldInstantiatePlanet1Test(){
         /* arrange */
 
@@ -53,7 +34,7 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1NameBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet1Name(){
         /* arrange */
 
         /* act */
@@ -65,13 +46,13 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet1's name property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[name\\] AssignExpr StringLiteralExpr\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet1's name property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[name\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1DistanceFromSunBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet1DistanceFromSun(){
         /* arrange */
 
         /* act */
@@ -83,13 +64,13 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet1's distanceFromSun property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[distanceFromSun\\] AssignExpr (DoubleLiteralExpr|IntegerLiteralExpr)\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet1's distanceFromSun property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[distanceFromSun\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1SatellitesBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet1Satellites(){
         /* arrange */
 
         /* act */
@@ -101,13 +82,13 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet1's satellites property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[satellites\\] AssignExpr IntegerLiteralExpr\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet1's satellites property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[satellites\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
 
     @Test
-    public void mainMethodShouldSetPlanet1SupportsLifeBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet1SupportsLife(){
         /* arrange */
 
         /* act */
@@ -119,13 +100,30 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet1's supportsLife property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[supportsLife\\] AssignExpr BooleanLiteralExpr\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet1's supportsLife property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[supportsLife\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
 
-    // planet 2 tests //
+    @Test
+    public void mainMethodShouldPrintPlanet1AfterSettingPropertiesTest(){
+        /* arrange */
 
+        /* act */
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
+
+        // check the structure of the code
+        Assert.assertThat("The main() method should print a description of planet1 after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[satellites\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet1\\] FieldAccessExpr\\[satellites\\].*?\\/ExpressionStmt.*?$"));
+
+    }
+
+    // planet 2 tests
 
     @Test
     public void mainMethodShouldInstantiatePlanet2Test(){
@@ -146,7 +144,7 @@ public class MainTest extends TestifierTest {
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2NameBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet2Name(){
         /* arrange */
 
         /* act */
@@ -158,13 +156,13 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet2's name property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[name\\] AssignExpr StringLiteralExpr\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet2's name property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[name\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2DistanceFromSunBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet2DistanceFromSun(){
         /* arrange */
 
         /* act */
@@ -176,13 +174,13 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet2's distanceFromSun property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[distanceFromSun\\] AssignExpr (DoubleLiteralExpr|IntegerLiteralExpr)\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet2's distanceFromSun property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[distanceFromSun\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2SatellitesBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet2Satellites(){
         /* arrange */
 
         /* act */
@@ -194,13 +192,13 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet2's satellites property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[satellites\\] AssignExpr IntegerLiteralExpr\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet2's satellites property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[satellites\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
 
     @Test
-    public void mainMethodShouldSetPlanet2SupportsLifeBeforePrintingTest(){
+    public void mainMethodShouldSetPlanet2SupportsLife(){
         /* arrange */
 
         /* act */
@@ -212,10 +210,30 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should set planet2's supportsLife property before printing it out the first time.",
-                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[supportsLife\\] AssignExpr BooleanLiteralExpr\\[.*?\\] \\/ExpressionStmt.*?(MethodName\\[println\\].*?){4}.*?$"));
+        Assert.assertThat("The main() method should set planet2's supportsLife property.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[supportsLife\\] AssignExpr.*?\\/ExpressionStmt.*?$"));
 
     }
+
+    @Test
+    public void mainMethodShouldPrintPlanet2AfterSettingPropertiesTest(){
+        /* arrange */
+
+        /* act */
+        String source = null;
+        try {
+            source = codeWatcher.getMainSourceCodeService().getDescriptionOfMethod("main", String[].class);
+        } catch (CannotFindMethodException e) {
+            fail(e.getMessage());
+        }
+
+        // check the structure of the code
+        Assert.assertThat("The main() method should print a description of planet2 after setting its properties the first time.",
+                source, RegexMatcher.matches("^.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[satellites\\] AssignExpr.*?\\/ExpressionStmt.*?ExpressionStmt MethodCallExpr NameExpr\\[System\\] FieldAccessExpr\\[out\\] MethodName\\[println\\] MethodArguments.*?NameExpr\\[planet2\\] FieldAccessExpr\\[satellites\\].*?\\/ExpressionStmt.*?$"));
+
+    }
+
+    // change properties
 
     @Test
     public void mainMethodShouldChangePlanet1PropertyAfterPrintingTest(){
@@ -230,7 +248,7 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should change any one of Planet1's properties before printing it out a second time.",
+        Assert.assertThat("The main() method should change any one of Planet1's properties after printing it the first time.",
                 source, RegexMatcher.matches("^.*?(MethodCallExpr.*?MethodName\\[println\\].*?){2}.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet1\\] NameExpr\\[.*?\\] AssignExpr .*?LiteralExpr.*? \\/ExpressionStmt.*?$"));
 
     }
@@ -248,9 +266,30 @@ public class MainTest extends TestifierTest {
         }
 
         // check the structure of the code
-        Assert.assertThat("The main() method should change any one of Planet2's properties before printing it out a second time.",
+        Assert.assertThat("The main() method should change any one of Planet2's properties after printing it the first time.",
                 source, RegexMatcher.matches("^.*?(MethodCallExpr.*?MethodName\\[println\\].*?){2}.*?ExpressionStmt FieldAccessExpr NameExpr\\[planet2\\] NameExpr\\[.*?\\] AssignExpr .*?LiteralExpr.*? \\/ExpressionStmt.*?$"));
 
+    }
+
+
+    @Test
+    public void mainMethodShouldPrintFourStringsTest() {
+        /* arrange */
+
+        /* act */
+        Main.main(new String[]{});
+
+        /* assert */
+        ArrayList printed = ((OutputStreamInterceptor) System.out).getPrinted();
+        // note that the testifier rule considers println to print two things, the text and a newline
+        assertThat("The main method should have printed four individual Strings to the console.",
+                printed.size(), equalTo(8));
+
+        // the first and third and second and fourth strings should not be equal
+        assertThat("The planet1 object should have been changed, resulting in different output the second time planet1 was described.",
+                printed.get(0), is(not(printed.get(4))));
+        assertThat("The planet2 object should have been changed, resulting in different output the second time planet2 was described.",
+                printed.get(2), is(not(printed.get(6))));
     }
 
 }

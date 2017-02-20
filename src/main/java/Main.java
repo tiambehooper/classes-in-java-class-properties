@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // todo: create an new variable "planet1" and set it to a new instance of the Planet class
+        // todo: create a new variable "planet1" and set it to a new instance of the Planet class
 
         // todo: set all four properties of the Planet class on the planet1 instance: name, distanceFromSun, satellites, and supportsLife.
 
